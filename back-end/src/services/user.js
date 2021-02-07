@@ -1,7 +1,4 @@
-const user = {
-  "username": "Maria",
-  "password": "1234"
-}
+const data = require('../models/users');
 
 function validateLogin( username, password ) {
   const obj = {
@@ -9,14 +6,14 @@ function validateLogin( username, password ) {
     msg: ""
   }
 
-  if( username != user.username ) {
+  if( !data.getUserByName( username )) {
     obj.isValid = false;
     obj.msg = "invalid user";
 
     return obj;
   }
 
-  if( password != user.password ) {
+  if( !data.getUserByNameAndPassword( username, password ) ){
     obj.isValid = false;
     obj.msg = "wrong password";
 
