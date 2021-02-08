@@ -1,15 +1,12 @@
-const userService = require('../services/user'); //users services
+const userService = require('../services/user'); 
 
 function login( req, res, next ) {
-  const { username, password } = req.body; //pegando dados da request
+  const { username, password } = req.body; 
 
-
-  return res.json( userService.validateLogin( username, password ) ) // retorno da função validate login
+  return res.json( userService.validateLogin( username, password ) )
 }
 
-
 function set( app ) {
-  //trocar get por post
   app.post( '/login', login );
 }
 
