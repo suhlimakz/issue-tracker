@@ -1,13 +1,13 @@
 const {connection} = require( '../models/connector/mysql' );
 
-function getUserByName( name ) {
+function getUserByEmail( email ) {
   connection.connect();
 
-  const sql = `SELECT * FROM user u WHERE  name = '${name}'; ` ;
+  const sql = `SELECT * FROM user u WHERE  email = '${email}'; ` ;
  
   connection.query(  sql , function( error, results ) {
     if( error ) throw error;
-    console.log( {results: name} );
+    console.log( {results: email} );
     
     connection.end();
 
@@ -16,10 +16,10 @@ function getUserByName( name ) {
 
 }
 
-function getUserByNameAndPassword( name, pass ) {
+function getUserByEmailAndPassword( email, pass ) {
   connection.connect();
-  
-  const sql = `SELECT * FROM user u WHERE  name = '${name}' AND password = '${pass}'; ` ;
+
+  const sql = `SELECT * FROM user u WHERE  email = '${email}' AND password = '${pass}'; ` ;
   
   connection.query( sql, function( error, results ) {
     if( error ) throw error;
@@ -29,13 +29,13 @@ function getUserByNameAndPassword( name, pass ) {
 
       return results;
   } )
-  // return users.filter( u => u.username == name && u.password == pass )[0]
+  // return users.filter( u => u.useremail == email && u.password == pass )[0]
 }
 
-// getUserByName( 'Maria Soares' );
-// getUserByNameAndPassword( 'Maria Soares', 'senhaDaMariaSoares' );
+// getUserByemail( 'Maria Soares' );
+getUserByEmailAndPassword( 'mariasoares@email.com', 'senhaDaMariaSoares' );
 
 module.exports = {
-  getUserByName,
-  getUserByNameAndPassword,
+  getUserByEmail,
+  getUserByEmailAndPassword,
 }; 

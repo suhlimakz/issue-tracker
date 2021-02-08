@@ -1,19 +1,19 @@
 const data = require('../models/users');
 
-function validateLogin( username, password ) {
+function validateLogin( email, password ) {
   const obj = {
     isValid: true,
     msg: ""
   }
 
-  if( !data.getUserByName( username )) {
+  if( !data.getUserByEmail( email )) {
     obj.isValid = false;
     obj.msg = "invalid user";
 
     return obj;
   }
 
-  if( !data.getUserByNameAndPassword( username, password ) ){
+  if( !data.getUserByEmailAndPassword( email, password ) ){
     obj.isValid = false;
     obj.msg = "wrong password";
 
