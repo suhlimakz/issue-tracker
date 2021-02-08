@@ -1,33 +1,39 @@
-const users = [ 
-  {
-    "username": "Maria",
-    "password": "1234"
-  },
-  {
-    "username": "Pedro",
-    "password": "4321"
-  },
-  {
-    "username": "José",
-    "password": "5678"
-  },
-  {
-    "username": "Ana",
-    "password": "8765"
-  },
-  {
-    "username": "Maria",
-    "password": "2468"
-  },
-];
+const {connection} = require( '../models/connector/mysql' );
 
 function getUserByName( name ) {
-  return users.filter( u => u.username === name )[0]
+  connection.connect();
+
+  const sql = `SELECT * FROM user u WHERE  name = '${name}'; ` ;
+ 
+  connection.query(  sql , function( error, results ) {
+    if( error ) throw error;
+    console.log( {results: name} );
+    
+    connection.end();
+
+    return results;
+  } )
+
 }
 
 function getUserByNameAndPassword( name, pass ) {
-  return users.filter( u => u.username == name && u.password == pass )[0]
+  connection.connect();
+  
+  const sql = `SELECT * FROM user u WHERE  name = '${name}' AND password = '${pass}'; ` ;
+  
+  connection.query( sql, function( error, results ) {
+    if( error ) throw error;
+      console.log( results );
+      
+      connection.end();
+
+      return results;
+  } )
+  // return users.filter( u => u.username == name && u.password == pass )[0]
 }
+
+// getUserByName( 'Maria Soares' );
+// getUserByNameAndPassword( 'Maria Soares', 'senhaDaMariaSoares' );
 
 module.exports = {
   getUserByName,
