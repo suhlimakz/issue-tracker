@@ -1,41 +1,26 @@
-const {connection} = require( '../models/connector/mysql' );
+const { getConnection } = require('../models/connector/mysql');
 
-function getUserByEmail( email ) {
-  connection.connect();
+async function getUserByEmail(email) {
+  const connection = await getConnection();
+  const sql = `SELECT id FROM user u WHERE  email = '${email}'; `;
+  const [ results ] = await connection.query(sql)
 
-  const sql = `SELECT * FROM user u WHERE  email = '${email}'; ` ;
- 
-  connection.query(  sql , function( error, results ) {
-    if( error ) throw error;
-    console.log( {results: email} );
-    
-    connection.end();
+  connection.end();
 
-    return results;
-  } )
-
+  return results[ 0 ];
 }
 
-function getUserByEmailAndPassword( email, pass ) {
-  connection.connect();
+async function getUserByEmailAndPassword(email, pass) {
+  const connection = await getConnection();
+  const sql = `SELECT id, name, email, photo, level FROM user u WHERE  email = '${email}' AND password = '${pass}'; `;
+  const [ results ] = await connection.query(sql)
 
-  const sql = `SELECT * FROM user u WHERE  email = '${email}' AND password = '${pass}'; ` ;
-  
-  connection.query( sql, function( error, results ) {
-    if( error ) throw error;
-      console.log( results );
-      
-      connection.end();
+  connection.end();
 
-      return results;
-  } )
-  // return users.filter( u => u.useremail == email && u.password == pass )[0]
+  return results[ 0 ];
 }
-
-// getUserByemail( 'Maria Soares' );
-getUserByEmailAndPassword( 'mariasoares@email.com', 'senhaDaMariaSoares' );
 
 module.exports = {
   getUserByEmail,
   getUserByEmailAndPassword,
-}; 
+};

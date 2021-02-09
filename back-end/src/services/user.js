@@ -1,26 +1,29 @@
-const data = require('../models/users');
+const userModel = require('../models/users');
 
-function validateLogin( email, password ) {
+async function validateLogin( email, password ) {
   const obj = {
     isValid: true,
     msg: ""
   }
 
-  if( !data.getUserByEmail( email )) {
+  let user =  await userModel.getUserByEmail( email );
+
+  if( !user ) {
     obj.isValid = false;
     obj.msg = "invalid user";
 
     return obj;
   }
 
-  if( !data.getUserByEmailAndPassword( email, password ) ){
+  user = await userModel.getUserByEmailAndPassword( email, password ) ;
+  if( ! user ){
     obj.isValid = false;
     obj.msg = "wrong password";
 
     return obj;
   }
   
-  return obj;
+  return { ...user, ...obj };
 }
 
 module.exports = {

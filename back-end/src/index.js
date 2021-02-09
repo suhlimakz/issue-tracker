@@ -1,6 +1,6 @@
 const express = require( 'express' );
 const app = express();
-const users = require( './controllers/users' );
+const userController = require( './controllers/users' );
 const port = 9001;
 
 app.get( '/', function( req, res  ) {
@@ -9,7 +9,7 @@ app.get( '/', function( req, res  ) {
 
 app.use( express.json() );
 
-users.set( app );
+userController.set( app );
 
 app.listen( port, function() {
   console.log( `I live in port  ${port}` );
