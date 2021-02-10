@@ -48,8 +48,11 @@ async function addUser( name, pass, email, photo, level, isActive ) {
 
   connection.end();
 
-  return results[0];
+  // console.log( results );
+  return results;
 }
+
+// addUser( 'Luiz Antonio', '678ghi', 'luizantonio@email.com', 'photoLuizAntonio','1','1' );
 
 module.exports = {
   getUserByEmail,

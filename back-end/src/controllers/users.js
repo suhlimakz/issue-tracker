@@ -6,8 +6,16 @@ async function login( req, res, next ) {
   return res.json( await userService.validateLogin( email, password ) )
 }
 
+async function addUser( req, res, next ){
+  const { name, password, email, photo, level, isActive } = req.body;
+
+  return res.json( await userService.addNewUser( name, password, email, photo, level, isActive ) );
+
+}
+
 function set( app ) {
   app.post( '/login', login );
+  app.post( '/add-user', addUser )
 }
 
 module.exports = {
