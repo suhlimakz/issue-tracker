@@ -26,6 +26,25 @@ async function validateLogin( email, password ) {
   return { ...user, ...obj };
 }
 
+async function listUser ( username ) {
+  const msg = {
+    isValid: true,
+    msg: 'user located'
+  }
+
+  let userList = await userModel.listUserByNameForManager( username );
+
+  if( !userList ) {
+    msg.isValid = false;
+    msg.msg =  'invalid user';
+
+    return msg;
+  } 
+  
+  return { ...userList, ...msg };
+}
+
 module.exports = {
   validateLogin,
+  listUser,
 }; 

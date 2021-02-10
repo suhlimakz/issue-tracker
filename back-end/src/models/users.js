@@ -27,9 +27,7 @@ async function listUserByNameForManager( name ) {
 
   connection.end();
 
-  console.log( results );
-
-  return results[ 0 ];
+  return results;
 }
 
 
