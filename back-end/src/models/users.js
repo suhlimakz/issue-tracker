@@ -32,27 +32,26 @@ async function listUserByNameForManager( name ) {
   return results[ 0 ];
 }
 
-async function addUser( name, pass, email, photo, level, isActive ) {
+async function addUser( user ) {
+  const { name, password, email, photo, level } = user;
+
   const connection = await getConnection();
-  const sql = `INSERT INTO user( name, password, email, photo, level, isActive )
+  const sql = `INSERT INTO user( name, password, email, photo, level )
                       VALUES ( 
                          '${ name }', 
-                         '${ pass }',
+                         '${ password }',
                          '${ email }',
                          '${ photo }',
-                         '${ level }',
-                         '${ isActive }' 
+                         '${ level }'
                          );`
 
   const [ results ] = await connection.query( sql );
 
   connection.end();
 
-  // console.log( results );
   return results;
 }
 
-// addUser( 'Luiz Antonio', '678ghi', 'luizantonio@email.com', 'photoLuizAntonio','1','1' );
 
 module.exports = {
   getUserByEmail,

@@ -26,13 +26,13 @@ async function validateLogin( email, password ) {
   return { ...user, ...obj };
 }
 
-async function addNewUser( name, pass, email, photo, level, isActive ) {
+async function addNewUser( user ) {
   const msg = {
     register: true,
     msg: ""
   }
 
-  let registerUser = await userModel.addUser( name, pass, email, photo, level, isActive );
+  let registerUser = await userModel.addUser( user );
 
   if( !registerUser  ) {
     msg.register = false;

@@ -7,9 +7,16 @@ async function login( req, res, next ) {
 }
 
 async function addUser( req, res, next ){
-  const { name, password, email, photo, level, isActive } = req.body;
+  const { name, password, email, photo, level } = req.body;
+  const user = {
+    name,
+    password,
+    email,
+    photo,
+    level
+  }
 
-  return res.json( await userService.addNewUser( name, password, email, photo, level, isActive ) );
+  return res.json( await userService.addNewUser( user ) );
 
 }
 
