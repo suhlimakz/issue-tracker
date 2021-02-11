@@ -12,9 +12,24 @@ async function listUser( req, res, next ) {
   return res.json( await userService.listUser( username ) );
 }
 
+async function addUser( req, res, next ){
+  const { name, password, email, photo, level } = req.body;
+  const user = {
+    name,
+    password,
+    email,
+    photo,
+    level
+  }
+
+  return res.json( await userService.addNewUser( user ) );
+
+}
+
 function set( app ) {
   app.post( '/login', login );
   app.post( '/list-user', listUser );
+  app.post( '/add-user', addUser )
 }
 
 module.exports = {

@@ -30,10 +30,30 @@ async function listUserByNameForManager( name ) {
   return results;
 }
 
+async function addUser( user ) {
+  const { name, password, email, photo, level } = user;
+
+  const connection = await getConnection();
+  const sql = `INSERT INTO user( name, password, email, photo, level )
+                      VALUES ( 
+                         '${ name }', 
+                         '${ password }',
+                         '${ email }',
+                         '${ photo }',
+                         '${ level }'
+                         );`
+
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+
+  return results;
+}
 
 
 module.exports = {
   getUserByEmail,
   getUserByEmailAndPassword,
   listUserByNameForManager,
+  addUser,
 };
