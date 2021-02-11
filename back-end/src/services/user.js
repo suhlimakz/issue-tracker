@@ -26,24 +26,46 @@ async function validateLogin( email, password ) {
   return { ...user, ...obj };
 }
 
-async function listUser ( username ) {
+async function getUserByName( username ) {
   const msg = {
     isValid: true,
     msg: 'user located'
   }
 
-  let userList = await userModel.listUserByNameForManager( username );
+  let user = await userModel.getUserByName( username );
 
-  if( !userList ) {
+  if( !user ) {
     msg.isValid = false;
     msg.msg =  'invalid user';
 
     return msg;
   } 
-  
-  return { ...userList, ...msg };
+
+  return { ...user, ...msg };
 }
+
+async function listAllUsers() {
+  const msg = {
+    isValid: true,
+    msg: 'user located'
+  }
+
+  let allListUsers = JSON.stringify( await userModel.listAllUsers() );
+  allListUsers = JSON.parse( allListUsers );
+
+  if( !allListUsers ) {
+    msg.isValid = false,
+    msg.msg = 'error'
+
+    console.log('not:' +  allListUsers );
+
+    return msg;
+  }
+  console.log( allListUsers );
   
+  return{ ...msg, ...allListUsers  };
+}
+
 async function addNewUser( user ) {
   const msg = {
     register: true,
@@ -64,6 +86,7 @@ async function addNewUser( user ) {
 
 module.exports = {
   validateLogin,
-  listUser,
+  getUserByName,
+  listAllUsers,
   addNewUser,
 }; 

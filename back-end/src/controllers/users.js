@@ -6,10 +6,18 @@ async function login( req, res, next ) {
   return res.json( await userService.validateLogin( email, password ) );
 }
 
-async function listUser( req, res, next ) {
+async function  getUserByName( req, res, next ) {
   const { username } = req.body;
 
-  return res.json( await userService.listUser( username ) );
+  return res.json( await userService.getUserByName( username ) );
+}
+
+async function listAllUsers( req, res ) {
+  const users = await userService.listAllUsers();
+
+  console.log( users );
+  // // return res.json( users);
+  return res.json( { ping: 'pong' } );
 }
 
 async function addUser( req, res, next ){
@@ -23,13 +31,12 @@ async function addUser( req, res, next ){
   }
 
   return res.json( await userService.addNewUser( user ) );
-
 }
 
 function set( app ) {
   app.post( '/login', login );
-  app.post( '/list-user', listUser );
-  app.post( '/add-user', addUser )
+  app.get( '/list-users', listAllUsers );
+  app.post( '/add-user', addUser );
 }
 
 module.exports = {
