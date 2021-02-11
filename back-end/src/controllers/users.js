@@ -15,9 +15,7 @@ async function  getUserByName( req, res, next ) {
 async function listAllUsers( req, res ) {
   const users = await userService.listAllUsers();
 
-  console.log( users );
-  // // return res.json( users);
-  return res.json( { ping: 'pong' } );
+  return res.json( users);
 }
 
 async function addUser( req, res, next ){

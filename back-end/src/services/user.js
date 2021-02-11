@@ -57,12 +57,9 @@ async function listAllUsers() {
     msg.isValid = false,
     msg.msg = 'error'
 
-    console.log('not:' +  allListUsers );
-
     return msg;
-  }
-  console.log( allListUsers );
-  
+  }  
+
   return{ ...msg, ...allListUsers  };
 }
 
