@@ -26,6 +26,25 @@ async function validateLogin( email, password ) {
   return { ...user, ...obj };
 }
 
+async function addNewUser( user ) {
+  const msg = {
+    register: true,
+    msg: ""
+  }
+
+  let registerUser = await userModel.addUser( user );
+
+  if( !registerUser  ) {
+    msg.register = false;
+    msg.msg = "failed register user";
+
+    return msg;
+  }
+
+  return { ...msg, ...registerUser };
+}
+
 module.exports = {
   validateLogin,
+  addNewUser,
 }; 

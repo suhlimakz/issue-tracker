@@ -13,14 +13,49 @@ async function getUserByEmail(email) {
 async function getUserByEmailAndPassword(email, pass) {
   const connection = await getConnection();
   const sql = `SELECT id, name, email, photo, level FROM user u WHERE  email = '${email}' AND password = '${pass}'; `;
-  const [ results ] = await connection.query(sql)
+  const [ results ] = await connection.query(sql);
 
   connection.end();
 
   return results[ 0 ];
 }
 
+async function listUserByNameForManager( name ) {
+  const connection = await getConnection();
+  const sql = `SELECT id, name, email, photo, level FROM user u WHERE name='${ name }';`;
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+
+  console.log( results );
+
+  return results[ 0 ];
+}
+
+async function addUser( user ) {
+  const { name, password, email, photo, level } = user;
+
+  const connection = await getConnection();
+  const sql = `INSERT INTO user( name, password, email, photo, level )
+                      VALUES ( 
+                         '${ name }', 
+                         '${ password }',
+                         '${ email }',
+                         '${ photo }',
+                         '${ level }'
+                         );`
+
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+
+  return results;
+}
+
+
 module.exports = {
   getUserByEmail,
   getUserByEmailAndPassword,
+  listUserByNameForManager,
+  addUser,
 };
