@@ -20,16 +20,24 @@ async function getUserByEmailAndPassword(email, pass) {
   return results[ 0 ];
 }
 
-async function listUserByNameForManager( name ) {
+async function getUserByName( name ) {
   const connection = await getConnection();
   const sql = `SELECT id, name, email, photo, level FROM user u WHERE name='${ name }';`;
   const [ results ] = await connection.query( sql );
 
   connection.end();
 
-  console.log( results );
+  return results;
+}
 
-  return results[ 0 ];
+async function listAllUsers() {
+  const connection = await getConnection();
+  const sql = `SELECT id, name, email, photo, level  FROM user u WHERE isActive = true;`;
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+  
+  return results;
 }
 
 async function addUser( user ) {
@@ -52,10 +60,10 @@ async function addUser( user ) {
   return results;
 }
 
-
 module.exports = {
   getUserByEmail,
   getUserByEmailAndPassword,
-  listUserByNameForManager,
+  getUserByName,
+  listAllUsers,
   addUser,
 };
