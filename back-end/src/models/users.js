@@ -60,10 +60,21 @@ async function addUser( user ) {
   return results;
 }
 
+async function deactivateUser( userID ) {
+  const connection = await getConnection();
+  const sql = ` UPDATE user u SET isActive = false WHERE id = ${ userID }; ` ;
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+
+  return results;
+}
+
 module.exports = {
   getUserByEmail,
   getUserByEmailAndPassword,
   getUserByName,
   listAllUsers,
   addUser,
+  deactivateUser,
 };

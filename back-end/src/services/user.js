@@ -16,6 +16,7 @@ async function validateLogin( email, password ) {
   }
 
   user = await userModel.getUserByEmailAndPassword( email, password ) ;
+
   if( ! user ){
     obj.isValid = false;
     obj.msg = "wrong password";
@@ -54,7 +55,7 @@ async function listAllUsers() {
   allListUsers = JSON.parse( allListUsers );
 
   if( !allListUsers ) {
-    msg.isValid = false,
+    msg.isValid = false;
     msg.msg = 'error'
 
     return msg;
@@ -81,9 +82,28 @@ async function addNewUser( user ) {
   return { ...msg, ...registerUser };
 }
 
+async function deactivateUser( userID ) {
+  const msg = {
+    isValid: true,
+    msg: 'update successful' 
+  }
+
+  let id =  await userModel.deactivateUser( userID );
+
+  if( !id ) {
+    msg.isValid = true;
+    msg.msg = 'error';
+
+    return msg;
+  }
+
+  return msg ;
+}
+
 module.exports = {
   validateLogin,
   getUserByName,
   listAllUsers,
   addNewUser,
+  deactivateUser,
 }; 

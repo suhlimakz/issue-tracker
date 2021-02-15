@@ -31,10 +31,17 @@ async function addUser( req, res, next ){
   return res.json( await userService.addNewUser( user ) );
 }
 
+async function deactivateUser( req, res, next ) {
+  const { id } = req.body;
+
+  return res.json( await userService.deactivateUser( id ) );
+}
+
 function set( app ) {
   app.post( '/login', login );
   app.get( '/list-users', listAllUsers );
   app.post( '/add-user', addUser );
+  app.get( '/deactivate-user', deactivateUser );
 }
 
 module.exports = {
