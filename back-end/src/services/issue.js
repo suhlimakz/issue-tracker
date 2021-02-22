@@ -15,7 +15,6 @@ async function addIssue( issue ) {
     return msg;
   }
 
-  console.log( msg );
   return { ...msg, ...registerIssue };
 }
 
