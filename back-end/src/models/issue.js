@@ -24,10 +24,16 @@ async function addIssue( issue ) {
 }
 
 async function deleteIssue( id ) {
+  const connection = await getConnection();
+  const sql = `DELETE FROM issue WHERE id = ${ id };`;
 
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+
+  console.log( results );
+  return results;
 }
-
-
 
 module.exports = {
   addIssue,
