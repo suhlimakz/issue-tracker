@@ -16,8 +16,10 @@ async function newIssue( req, res, next ) {
   return res.json( await issueService.addIssue( issue ) );
 }
 
-async function deleteIssue( id ) {
+async function deleteIssue( req, res, next ) {
+  const { id } = req.body;
 
+  return res.json( await issueService.deleteIssue( id ) );
 }
 
 function set( app ) {
