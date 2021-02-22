@@ -19,7 +19,21 @@ async function addIssue( issue ) {
 }
 
 async function deleteIssue( id ) {
+  const msg = {
+    delete: true,
+    info: 'successful'
+  }
 
+  let issueId =  await issueModel.deleteIssue( id );
+
+  if( !issueId ) {
+    msg.delete = false;
+    msg.info = 'is not possible delete'
+
+    return msg;
+  }
+
+  return msg;
 }
 
 module.exports = {

@@ -31,7 +31,6 @@ async function deleteIssue( id ) {
 
   connection.end();
 
-  console.log( results );
   return results;
 }
 
