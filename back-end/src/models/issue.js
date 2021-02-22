@@ -23,6 +23,13 @@ async function addIssue( issue ) {
   return results;
 }
 
+async function deleteIssue( id ) {
+
+}
+
+
+
 module.exports = {
   addIssue,
+  deleteIssue,
 };

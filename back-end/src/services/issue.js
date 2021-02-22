@@ -18,6 +18,11 @@ async function addIssue( issue ) {
   return { ...msg, ...registerIssue };
 }
 
+async function deleteIssue( id ) {
+
+}
+
 module.exports = {
   addIssue,
+  deleteIssue,
 };
