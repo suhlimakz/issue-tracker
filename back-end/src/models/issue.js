@@ -34,7 +34,22 @@ async function deleteIssue( id ) {
   return results;
 }
 
+async function selectIssuesActive() {
+  const activeIssue = 1 ;
+
+  const connection = await getConnection();
+  const sql = `SELECT * FROM issueTracker.issue i
+               WHERE status = ${ activeIssue }
+               ORDER BY priority, dueDate;`;
+
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+  return results;
+}
+
 module.exports = {
   addIssue,
   deleteIssue,
+  selectIssuesActive,
 };
