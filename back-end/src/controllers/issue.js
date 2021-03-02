@@ -22,9 +22,16 @@ async function deleteIssue( req, res, next ) {
   return res.json( await issueService.deleteIssue( id ) );
 }
 
+async function selectIssuesActive( req, res ) {
+  const issues = await issueService.selectIssuesActive();
+
+  return res.json( issues );
+}
+
 function set( app ) {
   app.post('/new-issue', newIssue );
   app.post( '/delete-issue', deleteIssue );
+  app.get( '/issues', selectIssuesActive );
 }
 
 module.exports = {
