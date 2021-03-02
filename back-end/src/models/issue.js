@@ -55,7 +55,6 @@ async function updateIssue( issue ) {
 
   connection.end();
   
-  console.log( 'update successful' );
   return results;
 }
 
