@@ -36,7 +36,27 @@ async function deleteIssue( id ) {
   return msg;
 }
 
+async function selectIssuesActive() {
+  const msg = {
+    select: true,
+    info: 'successful'
+  }
+
+  let selectIssuesActive = JSON.stringify( await issueModel.selectIssuesActive() );
+  selectIssuesActive = JSON.parse( selectIssuesActive );
+
+  if( !selectIssuesActive ) {
+    msg.select = false;
+    msg.info = 'is not possible select';
+
+    return msg;
+  }
+
+  return { selectIssuesActive } ;
+}
+
 module.exports = {
   addIssue,
   deleteIssue,
+  selectIssuesActive,
 };
