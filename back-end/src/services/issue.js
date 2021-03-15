@@ -42,8 +42,7 @@ async function selectIssuesActive() {
     info: 'successful'
   }
 
-  let selectIssuesActive = JSON.stringify( await issueModel.selectIssuesActive() );
-  selectIssuesActive = JSON.parse( selectIssuesActive );
+  let selectIssuesActive = await issueModel.selectIssuesActive();
 
   if( !selectIssuesActive ) {
     msg.select = false;
@@ -52,7 +51,7 @@ async function selectIssuesActive() {
     return msg;
   }
 
-  return { selectIssuesActive } ;
+  return { ...selectIssuesActive, ...msg } ;
 }
 
 module.exports = {
