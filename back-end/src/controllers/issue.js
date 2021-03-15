@@ -28,10 +28,28 @@ async function selectIssuesActive( req, res ) {
   return res.json( issues );
 }
 
+async function updateIssue( req, res, next ) {
+  const { id, title, createBy, dueDate, priority, status, assignee, releaseId, description } = req.body;
+  const issue = {
+    id,
+    title,
+    createBy, 
+    dueDate,
+    priority,
+    status,
+    assignee,
+    releaseId,
+    description
+  }
+
+  return res.json( await issueService.updateIssue( issue ) );
+}
+
 function set( app ) {
   app.post('/new-issue', newIssue );
   app.post( '/delete-issue', deleteIssue );
   app.get( '/issues', selectIssuesActive );
+  app.put( '/issue',updateIssue );
 }
 
 module.exports = {
