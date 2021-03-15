@@ -36,7 +36,26 @@ async function deleteIssue( id ) {
   return msg;
 }
 
+async function updateIssue( issue ) {
+  const msg = {
+    update: true,
+    info: 'update sucessful'
+  }
+
+  let updateIssue = await issueModel.updateIssue( issue );
+
+  if( !updateIssue ) {
+    msg.update = false;
+    msg.info = 'is not possible update';
+
+    return msg;
+  }
+
+  return {...msg, ...updateIssue };
+}
+
 module.exports = {
   addIssue,
   deleteIssue,
+  updateIssue,
 };
