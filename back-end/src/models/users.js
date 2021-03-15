@@ -71,7 +71,7 @@ async function deactivateUser( userID ) {
 }
 
 async function updateUser( user ) {
-  const { name, password, email, photo, level  } = user;
+  const { id, name, password, email, photo, level, isActive  } = user;
 
   const connection = await getConnection();
   const sql = `UPDATE user
@@ -80,7 +80,9 @@ async function updateUser( user ) {
                password = '${ password }',
                email = '${ email }',
                photo = '${ photo }',
-               level = '${ level }'; `;
+               level = '${ level }',
+               isActive = '${ isActive }'
+              WHERE id = '${ id }'; `;
 
   const [ reults ] = await connection.query( sql );
 

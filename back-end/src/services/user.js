@@ -100,6 +100,16 @@ async function deactivateUser( userID ) {
   return msg ;
 }
 
+const data = {
+  // id: 16,
+  name: 'Heloisa',
+  password: '11109',
+  email: 'heloisasantana@email.com',
+  photo:  'photoHeloisaSantana.jpg',
+  level: 3,
+  isActive: 0
+}
+
 async function updateUser( user ) {
   const msg = {
     update: true,
