@@ -70,6 +70,25 @@ async function deactivateUser( userID ) {
   return results;
 }
 
+async function updateUser( user ) {
+  const { name, password, email, photo, level  } = user;
+
+  const connection = await getConnection();
+  const sql = `UPDATE user
+               SET
+               name = '${ name }',
+               password = '${ password }',
+               email = '${ email }',
+               photo = '${ photo }',
+               level = '${ level }'; `;
+
+  const [ reults ] = await connection.query( sql );
+
+  connection.end();
+
+  return user;
+}
+
 module.exports = {
   getUserByEmail,
   getUserByEmailAndPassword,
@@ -77,4 +96,5 @@ module.exports = {
   listAllUsers,
   addUser,
   deactivateUser,
+  updateUser,
 };
