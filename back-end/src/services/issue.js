@@ -51,7 +51,7 @@ async function updateIssue( issue ) {
     return msg;
   }
 
-  return msg;
+  return {...msg, ...updateIssue };
 }
 
 module.exports = {

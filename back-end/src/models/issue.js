@@ -55,7 +55,7 @@ async function updateIssue( issue ) {
 
   connection.end();
   
-  return results;
+  return issue;
 }
 
 module.exports = {
