@@ -66,7 +66,7 @@ async function updateIssue( issue ) {
                 description = '${ description }'
                WHERE id = ${ id };`;
 
-  const [ results ] = await connection.query( sql );
+  await connection.query( sql );
 
   connection.end();
   
