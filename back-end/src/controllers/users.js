@@ -37,11 +37,28 @@ async function deactivateUser( req, res, next ) {
   return res.json( await userService.deactivateUser( id ) );
 }
 
+async function updateUser( req, res, next ) {
+  const { id, name, password, email, photo, level, isActive } = req.body;
+  const user = {
+    id,
+    name,
+    password,
+    email,
+    photo,
+    level,
+    isActive
+  }
+
+  return res.json( await userService.updateUser( user ) );
+}
+
+
 function set( app ) {
   app.post( '/login', login );
   app.get( '/list-users', listAllUsers );
   app.post( '/add-user', addUser );
   app.get( '/deactivate-user', deactivateUser );
+  app.put( '/user', updateUser );
 }
 
 module.exports = {

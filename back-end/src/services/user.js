@@ -100,10 +100,29 @@ async function deactivateUser( userID ) {
   return msg ;
 }
 
+async function updateUser( user ) {
+  const msg = {
+    update: true,
+    info: 'update sucessful'
+  }
+
+  let updateUser = await userModel.updateUser( user );
+
+  if( !updateUser ) {
+    msg.update = false;
+    msg.info = 'is not possible update';
+
+    return msg;
+  }
+
+  return{ ...msg, ...updateUser };
+}
+
 module.exports = {
   validateLogin,
   getUserByName,
   listAllUsers,
   addNewUser,
   deactivateUser,
+  updateUser,
 }; 
