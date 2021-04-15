@@ -57,7 +57,7 @@ function set( app ) {
   app.post( '/login', login );
   app.get( '/users', listAllUsers );
   app.post( '/users', addUser );
-  app.get( '/deactivate-user', deactivateUser );
+  app.patch( '/users', deactivateUser );
   app.put( '/user', updateUser );
 }
 
