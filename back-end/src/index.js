@@ -1,7 +1,7 @@
 const express = require( 'express' );
 const app = express();
 const bodyParser = require( 'body-parser' );
-const { validateToken } = require( '.controllers/authentication' );
+const { validateToken } = require( './controllers/authentication' );
 const userController = require( './controllers/users' );
 const issueController = require( './controllers/issue' );
 const port = 9001;

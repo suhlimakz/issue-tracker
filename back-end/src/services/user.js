@@ -1,4 +1,4 @@
-const { getToken } = require( './authentication' );
+const { getToken } = require( '../controllers/authentication' );
 const userModel = require('../models/users');
 
 async function validateLogin( email, password ) {
@@ -25,7 +25,7 @@ async function validateLogin( email, password ) {
     return obj;
   }
 
-  const token = getToken( username, password );
+  const token = getToken( email );
   
   return { ...user, ...obj, token };
 }

@@ -1,8 +1,8 @@
 const jwt = require( "jsonwebtoken" );
 const privateKey = 'secretkey';
 
-function getToken( username, password ){
-  const token = jwt.sign( { username, password }, privateKey, {
+function getToken( email, password ){
+  const token = jwt.sign( { email, password }, privateKey, {
     expiresIn: "1m",
   } );
 
