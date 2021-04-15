@@ -30,3 +30,8 @@ function validateToken( req, res, next ) {
     return res.status( 403 ).json( { error: 'Unauthorized' } );
   }
 }
+
+module.exports = {
+  getToken,
+  validateToken,
+};
