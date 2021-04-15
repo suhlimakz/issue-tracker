@@ -58,7 +58,7 @@ function set( app ) {
   app.get( '/users', listAllUsers );
   app.post( '/users', addUser );
   app.patch( '/users', deactivateUser );
-  app.put( '/user', updateUser );
+  app.put( '/users', updateUser );
 }
 
 module.exports = {
