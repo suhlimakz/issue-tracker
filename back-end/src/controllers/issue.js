@@ -49,7 +49,7 @@ function set( app ) {
   app.post('/issues', newIssue );
   app.delete( '/issues', deleteIssue );
   app.get( '/issues', selectIssuesActive );
-  app.put( '/issue',updateIssue );
+  app.put( '/issues',updateIssue );
 }
 
 module.exports = {
