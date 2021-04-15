@@ -46,8 +46,8 @@ async function updateIssue( req, res, next ) {
 }
 
 function set( app ) {
-  app.post('/issue', newIssue );
-  app.post( '/delete-issue', deleteIssue );
+  app.post('/issues', newIssue );
+  app.delete( '/issues', deleteIssue );
   app.get( '/issues', selectIssuesActive );
   app.put( '/issue',updateIssue );
 }
