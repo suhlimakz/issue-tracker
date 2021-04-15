@@ -56,7 +56,7 @@ async function updateUser( req, res, next ) {
 function set( app ) {
   app.post( '/login', login );
   app.get( '/users', listAllUsers );
-  app.post( '/add-user', addUser );
+  app.post( '/users', addUser );
   app.get( '/deactivate-user', deactivateUser );
   app.put( '/user', updateUser );
 }
