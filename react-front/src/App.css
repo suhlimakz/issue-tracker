@@ -1,4 +1,10 @@
-.App {
+.App{
+  /* background-color: blue; */
+  /* height: 100vh; */
+  /* align-content: center; */
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: blue;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +41,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
