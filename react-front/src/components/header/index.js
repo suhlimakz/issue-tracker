@@ -6,7 +6,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 function Header() {
   return(
-    <header className="Header-container">
+    <header className="Header">
+      <div className="container" >
         <div className="logo--area">
           <div className="logo--image"></div>
         </div>
@@ -29,6 +30,7 @@ function Header() {
             <p className="user--occupation">Occupation</p>
           </div>
         </div>
+      </div>
 
 
       </header>

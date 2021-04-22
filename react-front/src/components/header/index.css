@@ -9,7 +9,15 @@ html{
   justify-content: space-around;
 }
 
-.Header-container {
+.Header{
+  background-color: #f4f6f6;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #D5D8DC;
+}
+
+.container {
   height: 10vh;
   width: 90vw;
   display: grid;
