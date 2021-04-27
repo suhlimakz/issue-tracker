@@ -2,11 +2,14 @@
 import './App.css';
 
 import Header from './components/header';
+import Menu from './components/menu';
 
 function App() {
   return (
     <div className="App">
       <Header />
+      
+      <Menu />
         {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
