@@ -1,0 +1,23 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.Menu {
+  background-color: #41a8a8;
+  width: 15vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .board, .team, .settings, .others, .logout {
+  display: flex;
+  flex-direction: row;
+} */
+
+

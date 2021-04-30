@@ -7,8 +7,7 @@ import Menu from './components/menu';
 function App() {
   return (
     <div className="App">
-      <Header />
-      
+      {/* <Header /> */}
       <Menu />
         {/* <img src={logo} className="App-logo" alt="logo" />
         <p>

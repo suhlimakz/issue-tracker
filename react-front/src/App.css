@@ -1,7 +1,14 @@
 .App{
-
+  /* display: grid; */
+  /* grid-template-columns: 0.5fr 2fr; */
+  background-color: pink;
+  width: 100vw;
+  height: 100vh;
 }
 
+/* .menu {
+  grid-column: 1;
+} */
 
 /* .App {
   text-align: center;
