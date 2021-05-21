@@ -3,47 +3,39 @@ import './index.css';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import SettingsIcon from '@material-ui/icons/Settings';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function Menu() {
   return(
     <div className="Menu" >
       <section className="container" >
+        <section>
+
           <div className="board">
-            <DashboardIcon />
-            <div className="txt-area" >
-              <h1 className="txt-option" >Board</h1>
-            </div>
+            <DashboardIcon className="icon" style={{ fontSize: 36 }}/>
+            <h1 className="txt"> Board </h1>
           </div>
 
           <div className="team" >
-            <GroupWorkIcon/>
-            <div className="txt-area" >
-              <h1>Team</h1>
-            </div>
+            <GroupWorkIcon className="icon" style={{ fontSize: 36 }} />
+            <h1 className="txt"> Team </h1>
           </div>
 
           <div className="settings" >
-            <SettingsIcon />
-            <div className="txt-area" >
-              <h1>Settings</h1>
-            </div>
+            <SettingsIcon className="icon" style={{ fontSize: 36 }}/>
+            <h1 className="txt"> Settings </h1>
           </div>
 
-          <div className="others" >
-            <MoreHorizIcon />
-            <div className="txt-area" >
-              <h1>Others</h1>
+        </section>
+        
+        <section>
+          <div className="div-logout">
+            <div className="logout">
+              <ExitToAppIcon className="icon" style={{ fontSize: 36 }} />
+              <h1 className="txt"> Logout </h1>
             </div>
           </div>
-
-          <div className="logout">
-            <ExitToAppIcon />
-            <div className="txt-area">
-              <h1>Logout</h1>
-            </div>
-          </div>
+        </section>
 
       </section>
 
