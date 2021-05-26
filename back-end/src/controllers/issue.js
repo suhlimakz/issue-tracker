@@ -45,11 +45,18 @@ async function updateIssue( req, res, next ) {
   return res.json( await issueService.updateIssue( issue ) );
 }
 
+async function completedIssue( req, res ) {
+  const issues = await issueService.completedIssue();
+
+  return res.json( issues );
+}
+
 function set( app ) {
   app.post('/issues', newIssue );
   app.delete( '/issues', deleteIssue );
   app.get( '/issues', selectIssuesActive );
   app.put( '/issues',updateIssue );
+  app.get( '/issues/done', completedIssue )
 }
 
 module.exports = {
