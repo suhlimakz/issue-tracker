@@ -34,7 +34,7 @@ async function deleteIssue( id ) {
   return results;
 }
 
-async function selectIssuesActive() {
+async function activeIssue() {
   const issueTodo = 2 ;
   const issueDoing = 3
 
@@ -79,6 +79,6 @@ async function updateIssue( issue ) {
 module.exports = {
   addIssue,
   deleteIssue,
-  selectIssuesActive,
+  activeIssue,
   updateIssue,
 };
