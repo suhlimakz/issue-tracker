@@ -54,24 +54,6 @@ async function selectIssuesActive() {
   return { ...selectIssuesActive, ...msg };
 }
 
-async function completedIssue() {
-  const msg = {
-    select: true,
-    info: 'successful'
-  }
-
-  let completedIssue = await issueModel.completedIssue();
-
-  if( !completedIssue ) {
-    msg.select = false;
-    msg.info = 'is not possible select';
-
-    return msg;
-  }
-
-  return { ...completedIssue, ...msg };
-}
-
 async function updateIssue( issue ) {
   const msg = {
     update: true,
@@ -90,9 +72,28 @@ async function updateIssue( issue ) {
   return {...msg, ...updateIssue };
 }
 
+async function completedIssue() {
+  const msg = {
+    select: true,
+    info: 'successful'
+  }
+
+  let completedIssue = await issueModel.completedIssue();
+
+  if( !completedIssue ) {
+    msg.select = false;
+    msg.info = 'is not possible select';
+
+    return msg;
+  }
+
+  return { ...completedIssue, ...msg };
+}
+
 module.exports = {
   addIssue,
   deleteIssue,
   selectIssuesActive,
   updateIssue,
+  completedIssue,
 };
