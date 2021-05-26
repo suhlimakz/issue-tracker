@@ -73,9 +73,25 @@ async function updateIssue( issue ) {
   return issue;
 }
 
+async function completedIssue() {
+  const issueDone = 4;
+
+  const connection = await getConnection();
+  const sql = `SELECT * FROM issueTracker.issue i
+               WHERE status = ${ issueDone }
+               ORDER BY dueDate DESC;`;
+  
+  const [ results ] = await connection.query( sql );
+
+  connection.end();
+
+  return results;
+}
+
 module.exports = {
   addIssue,
   deleteIssue,
   selectIssuesActive,
   updateIssue,
+  completedIssue,
 };
