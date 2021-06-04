@@ -1,7 +1,13 @@
 import React from 'react';
 import './index.css';
+import MailIcon from '@material-ui/icons/Mail';
+import VpnKeyRoundedIcon from '@material-ui/icons/VpnKeyRounded';
 
 function Login() {
+  const fontSize = {
+    fontSize = 30
+  };
+
   return(
     <div className="container">
       <header className="logo">
@@ -13,7 +19,7 @@ function Login() {
       <div className="form-acess">
         <form className="login-form">
           <div className="input-container">
-            
+            <MailIcon className="icon" style={ fontSize } />
             <input type="text" 
                    name="email"
                    id="email"
@@ -23,7 +29,7 @@ function Login() {
           </div>
 
           <div className="input-container">
-            
+            <VpnKeyRoundedIcon className="icon" style={ fontSize } />
             <input type="password"
                    name="pass"
                    id="password"
