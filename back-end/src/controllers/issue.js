@@ -22,8 +22,8 @@ async function deleteIssue( req, res, next ) {
   return res.json( await issueService.deleteIssue( id ) );
 }
 
-async function selectIssuesActive( req, res ) {
-  const issues = await issueService.selectIssuesActive();
+async function activeIssue( req, res ) {
+  const issues = await issueService.activeIssue();
 
   return res.json( issues );
 }
@@ -48,7 +48,7 @@ async function updateIssue( req, res, next ) {
 function set( app ) {
   app.post('/issues', newIssue );
   app.delete( '/issues', deleteIssue );
-  app.get( '/issues', selectIssuesActive );
+  app.get( '/issues', activeIssue );
   app.put( '/issues',updateIssue );
 }
 
