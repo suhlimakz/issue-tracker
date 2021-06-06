@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ main , feature/dockerfile ]
+    branches: [ main, "feature/dockerfile" ]
 
 jobs:
   build:

@@ -1,0 +1,77 @@
+.logo {
+  height: 10%;
+
+  /* display: flex; */
+  /* align-items: center; */
+  margin: 30px;
+}
+
+.logo-image {
+  height: 100px;
+  width: 400px;
+  margin-left: 50px;
+  border: 1px #000000 solid ;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-acess {
+  height: 60%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  box-shadow: 10px 10px 53px 0px #9899a1;
+  width: 800px ;
+  height: 70%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  height: 35px;
+  margin-bottom: 20px;
+  z-index: 3;
+}
+
+.icon {
+  color: #000000;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 2px #000000 solid;
+  background-color: #e6e6e6;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+.button-form { 
+  width: 60%;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px #000000 solid;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
