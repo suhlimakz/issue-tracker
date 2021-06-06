@@ -6,8 +6,8 @@ services:
       - "9001:9001"
   mysql:
     platform: linux/x86_64
-    image: mysql:5.7.20
+    image: mariadb
     environment:
-      - MYSQL_ROOT_PASSWORD=admin
+      - MARIADB_ROOT_PASSWORD=admin
     volumes:
       - ../database-model:/docker-entrypoint-initdb.d
