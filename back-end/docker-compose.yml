@@ -5,7 +5,6 @@ services:
     ports:
       - "9001:9001"
   mysql:
-    platform: linux/x86_64
     image: mariadb
     environment:
       - MARIADB_ROOT_PASSWORD=admin
