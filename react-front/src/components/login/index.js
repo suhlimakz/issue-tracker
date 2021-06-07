@@ -9,7 +9,7 @@ function Login() {
   };
 
   return(
-    <div className="container">
+    <div className="">
       <header className="logo">
         <div className="logo-image">
           <h1>Logo</h1>
