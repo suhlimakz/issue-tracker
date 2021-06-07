@@ -5,18 +5,18 @@ import VpnKeyRoundedIcon from '@material-ui/icons/VpnKeyRounded';
 
 function Login() {
   const fontSize = {
-    fontSize = 30
+    fontSize: 30
   };
 
   return(
-    <div className="">
+    <div className="login-container">
       <header className="logo">
         <div className="logo-image">
           <h1>Logo</h1>
         </div>
       </header>
 
-      <div className="form-acess">
+      <div>
         <form className="login-form">
           <div className="input-container">
             <MailIcon className="icon" style={ fontSize } />
