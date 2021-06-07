@@ -36,22 +36,22 @@ async function deleteIssue( id ) {
   return msg;
 }
 
-async function selectIssuesActive() {
+async function activeIssue() {
   const msg = {
     select: true,
     info: 'successful'
   }
 
-  let selectIssuesActive = await issueModel.selectIssuesActive();
+  let activeIssue = await issueModel.activeIssue();
 
-  if( !selectIssuesActive ) {
+  if( !activeIssue ) {
     msg.select = false;
     msg.info = 'is not possible to select';
     
     return msg;
   }
   
-  return { ...selectIssuesActive, ...msg };
+  return { ...activeIssue, ...msg };
 }
 
 async function updateIssue( issue ) {
@@ -93,7 +93,7 @@ async function completedIssue() {
 module.exports = {
   addIssue,
   deleteIssue,
-  selectIssuesActive,
+  activeIssue,
   updateIssue,
   completedIssue,
 };

@@ -2,12 +2,13 @@
 import './App.css';
 
 import Header from './components/header';
+import Menu from './components/menu';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-
+      {/* <Header /> */}
+      <Menu />
     </div>
   );
 }
