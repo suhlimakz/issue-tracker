@@ -7,7 +7,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function Menu() {
   const fontSize = {
-    fontSize = 36
+    fontSize: 36
   };
 
   return(
