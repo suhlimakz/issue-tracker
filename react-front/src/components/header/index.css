@@ -17,7 +17,7 @@ html{
   border: 1px solid #D5D8DC;
 }
 
-.container {
+.header-container {
   height: 10vh;
   width: 90vw;
   display: grid;

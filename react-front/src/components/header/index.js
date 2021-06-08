@@ -7,7 +7,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 function Header() {
   return(
     <header className="Header">
-      <div className="container" >
+      <div className="header-container" >
         <div className="logo--area">
           <div className="logo--image"></div>
         </div>
