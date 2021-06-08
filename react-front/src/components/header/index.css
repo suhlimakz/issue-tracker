@@ -24,7 +24,7 @@ html{
   grid-template-columns: 1fr 3fr .2fr 1fr;
 }
 
-.logo--area{
+.logo-area{
   width: 100%;
   height: 100%;
   display: flex;
@@ -32,39 +32,39 @@ html{
   justify-content: center;
 }
 
-.logo--image {
+.logo-image {
   width: 150px;
   height: 50px;
   border: 1px solid #000;
 }
 
-.search--area{
+.search-area{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.search--area > input {
+.search-area > input {
   height: 40px;
   width: 40vw;
 }
 
-.notification--area{
+.notification-area{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.user--area{
+.user-area{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.user--name{
+.user-name{
   font-size: clamp( .5rem, 1.5vw, 1.2rem );
 }
 

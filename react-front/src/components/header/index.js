@@ -8,26 +8,26 @@ function Header() {
   return(
     <header className="Header">
       <div className="header-container" >
-        <div className="logo--area">
-          <div className="logo--image"></div>
+        <div className="logo-area">
+          <div className="logo-image"></div>
         </div>
 
-        <div className="search--area">
-          <div className="search--icon">
+        <div className="search-area">
+          <div className="search-icon">
             <SearchIcon className="icon" style={{ fontSize: 30 }} />
           </div>
           <input type="text" placeholder="Search..."/>
         </div>
 
-        <div className="notification--area">
+        <div className="notification-area">
           <NotificationsIcon style={{ fontSize: 30 }} />
         </div>
 
-        <div className="user--area">
+        <div className="user-area">
             <AccountCircleIcon className="icon" style={{ fontSize: 30 }} />
-          <div className="identify--user">
-            <h1 className="user--name">Username</h1>
-            <p className="user--occupation">Occupation</p>
+          <div className="identify-user">
+            <h1 className="user-name">Username</h1>
+            <p className="user-occupation">Occupation</p>
           </div>
         </div>
       </div>
