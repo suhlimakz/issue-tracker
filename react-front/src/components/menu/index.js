@@ -12,7 +12,7 @@ function Menu() {
 
   return(
     <div className="Menu" >
-      <section className="container" >
+      <section className="menu-container" >
         <section>
 
           <div className="board">

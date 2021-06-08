@@ -1,9 +1,10 @@
 .Menu {
   width: 15vw;
-  height: 100vh;
+  height: 90vh;
+  border-right: 1px solid #D5D8DC;
 }
 
-.container {
+.menu-container {
   display: flex;
   flex-direction: column;
   width: 100%;
