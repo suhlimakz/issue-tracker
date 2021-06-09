@@ -28,7 +28,7 @@ async function deleteIssue( id ) {
 
   if( !issueId ) {
     msg.delete = false;
-    msg.info = 'is not possible delete'
+    msg.info = 'is not possible to delete'
 
     return msg;
   }
@@ -46,7 +46,7 @@ async function activeIssue() {
 
   if( !activeIssue ) {
     msg.select = false;
-    msg.info = 'is not possible select';
+    msg.info = 'is not possible to select';
     
     return msg;
   }
@@ -64,7 +64,7 @@ async function updateIssue( issue ) {
 
   if( !updateIssue ) {
     msg.update = false;
-    msg.info = 'is not possible update';
+    msg.info = 'is not possible to update';
 
     return msg;
   }
@@ -72,9 +72,28 @@ async function updateIssue( issue ) {
   return {...msg, ...updateIssue };
 }
 
+async function completedIssue() {
+  const msg = {
+    select: true,
+    info: 'successful'
+  }
+
+  let completedIssue = await issueModel.completedIssue();
+
+  if( !completedIssue ) {
+    msg.select = false;
+    msg.info = 'is not possible to select';
+
+    return msg;
+  }
+
+  return { ...completedIssue, ...msg };
+}
+
 module.exports = {
   addIssue,
   deleteIssue,
   activeIssue,
   updateIssue,
+  completedIssue,
 };
