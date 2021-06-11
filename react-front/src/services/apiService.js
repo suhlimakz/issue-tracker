@@ -9,12 +9,13 @@ async function loginUser(email, password) {
       password,
     });
 
-    console.log(data);
+    return data;
+    
   } catch (error) {
     console.log(error);
   }
 }
 
-//export default {
-//loginUser,
-//};
+export default {
+  loginUser
+};
