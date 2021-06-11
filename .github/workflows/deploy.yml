@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ main, "feature/dockerfile", feature/add-actions-login-screen ]
+    branches: [ main, "feature/dockerfile", "feature/add-actions-login-screen "]
 
 jobs:
   build:
