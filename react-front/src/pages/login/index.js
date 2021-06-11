@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./index.css";
 import MailIcon from "@material-ui/icons/Mail";
 import VpnKeyRoundedIcon from "@material-ui/icons/VpnKeyRounded";
+import apiService from "../../services/apiService";
+import { Redirect } from "react-router-dom";
 
 function Login() {
   const fontSize = {
@@ -10,17 +12,21 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [ user, setUser ] = useState( "" );
 
   function validate(e) {
     e.preventDefault();
 
-    if (email == "maria@maria.com") {
-      alert("é o email");
-    } else {
-      alert("não é o email");
-    }
-  }
+    apiService.loginUser( email, pass ).then( u => {
 
+      setUser( u );
+    } )
+  }
+  
+  if( user.isValid ){
+    return <Redirect to="/login" />
+  }
+  
   return (
     <div className="login-container">
       <header className="logo">
@@ -66,5 +72,7 @@ function Login() {
   );
 }
 
-export default Login;
+const login = Login;
+
+export default login;
 
