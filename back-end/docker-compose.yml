@@ -1,0 +1,12 @@
+version: "3"
+services:
+  backend:
+    build: .
+    ports:
+      - "9001:9001"
+  mysql:
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=admin
+    volumes:
+      - ../database-model:/docker-entrypoint-initdb.d
