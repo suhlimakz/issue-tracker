@@ -24,7 +24,7 @@ function Login() {
   }
   
   if( user.isValid ){
-    return <Redirect to="/login" />
+    return <Redirect to="/home" />
   }
   
   return (
