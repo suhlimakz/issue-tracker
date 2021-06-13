@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const baseUrl = "http://raspbery:9001";
+const baseUrl = "http://raspberry:9001";
 
 async function loginUser(email, password) {
   try {
