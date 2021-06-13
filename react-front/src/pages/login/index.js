@@ -23,7 +23,7 @@ function Login() {
     } )
   }
   
-  if( user.isValid ){
+  if( user?.isValid ){
     return <Redirect to="/home" />
   }
   
