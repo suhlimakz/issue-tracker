@@ -23,8 +23,8 @@ function Login() {
     } )
   }
   
-  if( user.isValid ){
-    return <Redirect to="/login" />
+  if( user?.isValid ){
+    return <Redirect to="/home" />
   }
   
   return (
