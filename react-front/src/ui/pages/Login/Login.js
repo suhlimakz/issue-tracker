@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./Login.style.css";
+import { LoginContainer } from "./Login.style.js";
 import MailIcon from "@material-ui/icons/Mail";
 import VpnKeyRoundedIcon from "@material-ui/icons/VpnKeyRounded";
 import apiService from "../../../services/apiService";
 import { Redirect } from "react-router-dom";
-
+import { Container } from "@material-ui/core";
+ 
 function Login() {
   const fontSize = {
     fontSize: 30,
@@ -28,47 +29,44 @@ function Login() {
   }
   
   return (
-    <div className="login-container">
-      <header className="logo">
-        <div className="logo-image">
-          <h1>Logo</h1>
-        </div>
-      </header>
+    <Container component={ LoginContainer }>
+    </Container>
 
-      <div>
-        <form className="login-form">
-          <div className="input-container">
-            <MailIcon className="icon" style={fontSize} />
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Email"
-              className="input-field"
-            />
-          </div>
+    //     <div className="login-container">
+    //   <div>
+    //     <form className="login-form">
+    //       <div className="input-container">
+    //         <MailIcon className="icon" style={fontSize} />
+    //         <input
+    //           value={email}
+    //           onChange={(e) => setEmail(e.target.value)}
+    //           type="text"
+    //           name="email"
+    //           id="email"
+    //           placeholder="Email"
+    //           className="input-field"
+    //         />
+    //       </div>
 
-          <div className="input-container">
-            <VpnKeyRoundedIcon className="icon" style={fontSize} />
-            <input
-              value={pass}
-              onChange={(e) => setPass(e.target.value)}
-              type="password"
-              name="pass"
-              id="password"
-              placeholder="***********"
-              className="input-field"
-            />
-          </div>
+    //       <div className="input-container">
+    //         <VpnKeyRoundedIcon className="icon" style={fontSize} />
+    //         <input
+    //           value={pass}
+    //           onChange={(e) => setPass(e.target.value)}
+    //           type="password"
+    //           name="pass"
+    //           id="password"
+    //           placeholder="***********"
+    //           className="input-field"
+    //         />
+    //       </div>
 
-          <button onClick={validate} type="submit" className="button-form">
-            Login
-          </button>
-        </form>
-      </div>
-    </div>
+    //       <button onClick={validate} type="submit" className="button-form">
+    //         Login
+    //       </button>
+    //     </form>
+    //   </div>
+    // </div>
   );
 }
 
