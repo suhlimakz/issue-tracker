@@ -8,3 +8,7 @@ export const LoginContainer = styled( Container )({
   maxWidth: 'md'
 })
 
+export const LoginLogo = styled('img')({
+  height: 100,
+  width: 400,
+});

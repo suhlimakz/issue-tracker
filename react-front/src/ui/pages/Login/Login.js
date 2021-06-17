@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LoginContainer } from "./Login.style.js";
+import { LoginContainer, LoginLogo } from "./Login.style.js";
 import MailIcon from "@material-ui/icons/Mail";
 import VpnKeyRoundedIcon from "@material-ui/icons/VpnKeyRounded";
 import apiService from "../../../services/apiService";
@@ -30,6 +30,10 @@ function Login() {
   
   return (
     <Container component={ LoginContainer }>
+      <LoginLogo
+        src={ `${process.env.PUBLIC_URL}/img/issue-tracker-logo.png` }
+        alt={'Issue Tracker'}
+      />
     </Container>
 
     //     <div className="login-container">
