@@ -1,7 +1,6 @@
-import { styled } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
-export const LoginStyle = makeStyles( ( theme ) => ({
+export const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -13,15 +12,13 @@ export const LoginStyle = makeStyles( ( theme ) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%',
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  container:{
+    height: '100vh',
+  }
 }));
-
-export const LoginLogo = styled('img')({
-  height: 250,
-  width: 600,
-});
