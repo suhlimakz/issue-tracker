@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './Menu.style.css';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import GroupWorkIcon from '@material-ui/icons/GroupWork';
 import SettingsIcon from '@material-ui/icons/Settings';

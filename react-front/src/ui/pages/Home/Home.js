@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../../components/header';
-import Menu from '../../components/menu';
+import Header from '../../components/surfaces/Header/Header';
+import Menu from '../../components/surfaces/Menu/Menu';
 
 function Home() {
   return(

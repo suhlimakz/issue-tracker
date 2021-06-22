@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./Header.style.css";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";

@@ -1,7 +1,7 @@
-import "./App.css";
-import Login from "./pages/login";
+import "./ui/styles/pages/App.css";
+import Login from "./ui/pages/Login/Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./pages/home/Home";
+import Home from "./ui/pages/Home/Home";
 
 function App() {
   return (
