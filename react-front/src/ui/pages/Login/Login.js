@@ -35,18 +35,27 @@ function Login() {
   }
   
   return (
-    <Container component="main" maxWidth="xs" 
+    <Container
+      component="main"
+      maxWidth="xs" 
       style={{ marginTop:"10rem"}}>
     <CssBaseline />
     <div className={classes.paper}>
       <Avatar className={classes.avatar}>
         <LockOutlinedIcon />
       </Avatar>
-      <Typography component="h1" variant="h5">
+      <Typography
+        component="h1"
+        variant="h5">
         Sign in
       </Typography>
-      <form className={classes.form} noValidate>
-        <Grid container spacing={1} alignItems="flex-end" >
+      <form 
+        className={classes.form}
+        noValidate>
+        <Grid
+          container
+          spacing={1}
+          alignItems="flex-end" >
           <Avatar>
             <MailIcon />
           </Avatar>
@@ -59,13 +68,15 @@ function Login() {
               type="text"
               name="email"
               id="email"
-              
               style={{ width: "300px"}}
             />
           </Grid>
         </Grid>
         
-        <Grid container spacing={1} alignItems="flex-end">
+        <Grid 
+          container
+          spacing={1}
+          alignItems="flex-end">
           <Avatar>
             <VpnKeyRoundedIcon />
           </Avatar>
